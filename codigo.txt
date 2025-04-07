@@ -1,0 +1,25 @@
+using static System.Console;
+
+
+decimal vc = 120.00m, desconto = 0, vcd = 0;
+
+
+if (vc < 50)
+{
+    desconto = 0;
+    vcd = vc;
+    WriteLine($"valor da compra {vc}\nvalor com desconto: {vcd}");
+}
+else if (vc >=50 && vc <=100)
+{
+    desconto = 0.05m;
+    vcd = vc - (desconto * desconto);
+    WriteLine($"valor da compra: {vc}\nvalor com desconto: {vcd:f2}");
+}
+else
+{
+    desconto = 0.10m;
+    vcd = vc - (desconto * desconto);
+    WriteLine($"valor da compra: {vc}\nvalor com desconto: {vcd:f2}");
+}
+ReadLine();

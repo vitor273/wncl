@@ -7,7 +7,7 @@
     $indice = array_search($email, $emails);
     if ($indice !== false && isset($senhas[$indice]) && $senha === $senhas[$indice]) {
         $_SESSION['usuario'] = $email;
-        header("Location: inicial.php");
+        header("Location: iniciar.php");
         exit;
     } else {
         echo "<script>alert('Credenciais inválidas.Tente novamente, por favor!');</script>";

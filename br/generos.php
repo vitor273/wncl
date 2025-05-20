@@ -24,9 +24,9 @@ $contagens = array_count_values($gen);
         data.addColumn('string', 'Topping');
         data.addColumn('number', 'Slices');
         data.addRows([
-          ['masculino', 3],
-          ['feminino', 1],
-          ['outro', 1],
+          ['Masculino', <?php echo isset($contagens["Masculino"])?$contagens["Masculino"]:0 ?>],
+          ['Feminino', <?php echo isset($contagens["Feminino"])?$contagens["Feminino"]:0 ?>],
+          ['Outro', <?php echo isset($contagens["Outro"])?$contagens["Outro"]:0 ?>],
         ]);
 
         // Set chart options

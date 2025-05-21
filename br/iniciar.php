@@ -208,7 +208,7 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
         <center><h1><b>PHP/ARRAY</b></h1></center>
         <hr/>
         <nav>
-           &nbsp;&nbsp;<a href="inicial.php" style="color: white; text-decoration: none">HOME | </a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
+           &nbsp;&nbsp;<a href="iniciar.php" style="color: white; text-decoration: none">HOME | </a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
            <div class="user">
            <?php echo$nomes[$id]?> | <a href="sair.php" style="color: white; text-decoration: none">SAIR</a>&nbsp;&nbsp;
            </div>
@@ -257,8 +257,8 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
                     </div>
                 <div class="modal-body text - start">
                     <form action= "cadastro.php" method="post">
-                        <label class="form-lable">E-MAIL</label>
-                        <input class="form-control" type="email" name="email" required placeholder="Digite o seu nome">
+                        <label class="form-lable">NOME</label>
+                        <input class="form-control" type="text" name="nome" required placeholder="Digite o seu nome">
                         <br/>
                         <label class="form-lable">GENERO</label>
                         <select class="form-select" aria-label="Selecione seu genero" name="genero" required>
@@ -267,8 +267,8 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
                       <option value="Outro">outro</option>
                       </select>
                         <br/>
-                        <label class="form-lable">NOME</label>
-                        <input class="form-control" type="text" name="nome" required placeholder="Digite o seu nome">
+                        <label class="form-lable">E-MAIL</label>
+                        <input class="form-control" type="email" name="email" required placeholder="Digite o seu e-mail">
                         <br/>
                         <label class="form-lable">SENHA</label>
                         <input class="form-control" type="password" name="senha" required placeholder="Digite a sua senha">

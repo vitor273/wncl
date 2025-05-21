@@ -5,9 +5,11 @@ if ($_SERVER['REQUEST_METHOD']=== 'POST'){
     $email = $_POST['email'];
     $genero = $_POST['genero'];
     $senha = $_POST['senha'];
-    echo $nome." ".$email." ".$senha." ".$genero;
-    $_SESSION['nomes'][] = $nomes;
-    $_SESSION['email'][] = $email;
+    if(in_array($email, $_SESSION['emails'])){
+
+    }
+    $_SESSION['nomes'][] = $nome;
+    $_SESSION['emails'][] = $email;
     $_SESSION['generos'][] = $genero;
     $_SESSION['senhas'][] = $senha;
     header("Location: iniciar.php");

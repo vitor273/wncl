@@ -1,6 +1,6 @@
 <?php
-session_start();
-$emails = $_SESSION['emails'];
+    session_start();
+    $emails = $_SESSION['emails'];
     $id = array_search($_SESSION['usuario'], $emails);
     $nomes = $_SESSION['nomes'];
 ?>
@@ -15,19 +15,12 @@ $emails = $_SESSION['emails'];
     </head>
     <style>
         body {
-            background-color: #000000;
-            color:green;
+            background-color: #4682B4;
         }
         .user {
             float: right;
         }
-        /* From Uiverse.io by NlghtM4re */ 
-/* From Uiverse.io by SelfMadeSystem */ 
-/*
-More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
- */
-
-.container {
+        .container {
   width: 100%;
   height: 100%;
   background: #000;
@@ -187,52 +180,54 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
       426.5px 6480px;
   }
 }
-
-
     </style>
-    <body class="container">
+    <body>
         <center><h1><b>PHP/ARRAY</b></h1></center>
         <hr/>
         <nav>
-           &nbsp;&nbsp;<a href="inicial.php" style="color: white; text-decoration: none">HOME | </a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
+           &nbsp;&nbsp;<a href="inicial.php" style="color: white; text-decoration: none">HOME |</a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
            <div class="user">
-           <?php echo$nomes[$id]?> | <a href="sair.php" style="color: white; text-decoration: none">SAIR</a>&nbsp;&nbsp;
+                <b style="color: white"><?php echo $nomes[$id]; ?> |</b> <a href="sair.php" style="color: white; text-decoration: none">SAIR</a>&nbsp;&nbsp;
            </div>
         </nav>
         <br/><br/>
-        <center><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <b>PESQUISA</b>
-        </button></center>
+        <center>PESQUISA</center>
         <br/><br/>
-        <div class="row justify-content-center row-cols-1 row-cols-md-3 text-center">
+        <div class="row justify-content-center row-cols-1 row-cols-md-2 text-center">
             <div class="cols">
-                <div class="card mb-4 rounded shadow-sw">
+                <div class="card mb-2 rounded shadow-sw">
                     <div class="card-header py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
-  <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
-</svg>
-                   <h3><b>LISTAGEN DE USUARIO</b></h3>
-                   </div>
-                    <div class="card-body">
-                    <table class="table table-dark table-striped">>
-                    <tr>
-                        <th>ID</th>
-                        <th>NOME</th>
-                        <th>E-MAIL</th>
-                        <th>AÇOES</th>
-                    </tr>
-                    <?php for ($i=0; $i < count($_SESSION['nomes'] ); $i++){ ?>
-                    <tr>
-                        <td><?= $i ?></td>
-                        <td><?= htmlspecialchars ($_SESSION['nomes'][$i]);?></td>
-                        <td><?=htmlspecialchars ($_SESSION['emails'][$i]);?></td>
-                        <td><?= htmlspecialchars ($_SESSION['generos'][$i]);?></td>
-                        <td> <a href= "EXCLUIR.php?pos<?= $i ?>">EDITAR</a> | <a href="excluir.php?pos=<? $i ?>">EXCLUIR</a></td> <?php } ?>
+                        <h3><svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" fill="blue" class="bi bi-people" viewBox="0 0 16 16">
+                        <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+                        </svg>&nbsp;<b>LISTAGEM DE USUÁRIOS</b></h3>
                     </div>
-                </div>
-            </div>
-        </div>     
-                </div>
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <tr>
+                                <th>ID</th>
+                                <th>NOME</th>
+                                <th>E-MAIL</th>
+                                <th>GENERO</th>
+                                <th>AÇÕES</th>
+                            </tr>
+                            <?php
+                                $reg = count($_SESSION['nomes']);
+                                for ($i=0; $i <= $reg-1 ; $i++) { 
+                                    echo "<tr>";
+                                        echo "<td>$i</td>";
+                                        echo "<td>".$_SESSION['nomes'][$i]."</td>";
+                                        echo "<td>".$_SESSION['emails'][$i]."</td>";
+                                        echo "<td>".$_SESSION['generos'][$i]."</td>";
+                                        echo "<td><a href='editar.php?pos=$i'><svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='blue' class='bi bi-pencil' viewBox='0 0 16 16'>
+                                            <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/>
+                                            </svg></a> | <a href='excluir.php?pos=$i'><svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' fill='red' class='bi bi-trash-fill' viewBox='0 0 16 16'>
+                                            <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0'/>
+                                            </svg></a></td>";
+                                    echo "</tr>";
+                                }
+                            ?>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

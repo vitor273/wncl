@@ -1,25 +1,9 @@
+
 <?php
-session_start();
-if(!isset($_SESSION['usuarios'])){
-header("Locatio: index.php");
-}
-if(!isset($_SESSION['nomes'])){
-    $emails = json_decode(file_get_contents("email.json"), true);
-    $senhas = json_decode(file_get_contents("senha.json"), true);
-    $nomes = json_decode(file_get_contents("nome.json"), true);
-    $generos = json_decode(file_get_contents("genero.json"), true);
-    $id = array_search($_SESSION['usuario'], $emails);
-    $_SESSION['nomes']= $nomes;
-    $_SESSION['senhas']= $senhas;
-    $_SESSION['generos']= $generos;
-    $_SESSION['emails']= $emails;
-}
-else{
+    session_start();
     $emails = $_SESSION['emails'];
     $id = array_search($_SESSION['usuario'], $emails);
     $nomes = $_SESSION['nomes'];
-}
-print_r($_SESSION);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -32,19 +16,13 @@ print_r($_SESSION);
     </head>
     <style>
         body {
-            background-color: #000000;
-            color:green;
+            background-color: #4682B4;
+            color: green;
         }
         .user {
             float: right;
         }
-        /* From Uiverse.io by NlghtM4re */ 
-/* From Uiverse.io by SelfMadeSystem */ 
-/*
-More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
- */
-
-.container {
+        .container {
   width: 100%;
   height: 100%;
   background: #000;
@@ -204,84 +182,49 @@ More comprehensive version at shenanigans.shoghisimon.ca/collection/css-rain-bg/
       426.5px 6480px;
   }
 }
-
-
     </style>
     <body class="container">
         <center><h1><b>PHP/ARRAY</b></h1></center>
         <hr/>
         <nav>
-           &nbsp;&nbsp;<a href="iniciar.php" style="color: white; text-decoration: none">HOME | </a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
+           &nbsp;&nbsp;<a href="iniciar.php" style="color: white; text-decoration: none">HOME |</a><a href="listagem.php" style="color: white; text-decoration: none"> LISTAGEM |</a><a href="gravar.php" style="color: white; text-decoration: none"> SALVAR DADOS</a>
            <div class="user">
-           <?php echo$nomes[$id]?> | <a href="sair.php" style="color: white; text-decoration: none">SAIR</a>&nbsp;&nbsp;
+                <b style="color: white"><?php echo $nomes[$id]; ?> |</b> <a href="sair.php" style="color: white; text-decoration: none">SAIR</a>&nbsp;&nbsp;
            </div>
         </nav>
         <br/><br/>
-        <center><button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            <b>CADASTRAR NOVO USUÁRIO</b>
-        </button></center>
-        <br/><br/>
-        <div class="row justify-content-center row-cols-2 row-cols-md-3 text-center">
+        <div class="row justify-content-center row-cols-1 row-cols-md-2 text-center">
             <div class="cols">
-                <div class="card mb-4 rounded shadow-sw">
+                <div class="card mb-2 rounded shadow-sw">
                     <div class="card-header py-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
-  <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/>
-</svg><h3><b>USUÁRIOS</b></h3>
+                        <h3><svg xmlns="http://www.w3.org/2000/svg" width="40" height="140" fill="black" class="bi bi-cpu" viewBox="0 0 16 16">
+  <path d="M5 0a.5.5 0 0 1 .5.5V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2h1V.5a.5.5 0 0 1 1 0V2A2.5 2.5 0 0 1 14 4.5h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14v1h1.5a.5.5 0 0 1 0 1H14a2.5 2.5 0 0 1-2.5 2.5v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14h-1v1.5a.5.5 0 0 1-1 0V14A2.5 2.5 0 0 1 2 11.5H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2v-1H.5a.5.5 0 0 1 0-1H2A2.5 2.5 0 0 1 4.5 2V.5A.5.5 0 0 1 5 0m-.5 3A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3zM5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5zM6.5 6a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5z"/>
+</svg>&nbsp;<b>SALVAMENTO DE DADOS</b></h3>
                     </div>
                     <div class="card-body">
                         <?php
-                            include "usuarios.php";
+                        $porc = 0;
+                        $dados = $_SESSION['nomes'];
+                        $conteudo = json_encode($dados, JSON_PRETTY_PRINT);
+                        file_put_contents("nome.json", $conteudo);
+                        $porc = 25;
+                        $dados = $_SESSION['emails'];
+                        $conteudo = json_encode($dados, JSON_PRETTY_PRINT);
+                        file_put_contents("email.json", $conteudo);
+                        $porc = 50;
+                        $dados = $_SESSION['generos'];
+                        $conteudo = json_encode($dados, JSON_PRETTY_PRINT);
+                        file_put_contents("genero.json", $conteudo);
+                        $porc = 75;
+                        echo"<div class='progress'>";
+                        echo "<div class='progress-bar progress-bar-striped progress-bar-animated' role='progressbar' aria-valuenow='75' aria-valuemin='0' aria-valuemax='100' style='width: $porc%'>$porc%</div>";
+                        if($porc == 100)
+                        echo"<br/><h4 style = 'color: #000000;' >DADOS SALVOS COM SUCESSO!</h4>";
+                        echo "</div>";
                         ?>
+                        </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="cols">
-                <div class="card mb-4 rounded shadow-sw">
-                    <div class="card-header py-3">
-                       <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16">
-  <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927z"/>
-</svg><h3><b>GENEROS</b></h3>
-                    </div>
-                    <div class="card-body">
-                        <?php
-                            include "generos.php";
-                        ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">CADASTRAR USUARIO</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                <div class="modal-body text - start">
-                    <form action= "cadastro.php" method="post">
-                        <label class="form-lable">NOME</label>
-                        <input class="form-control" type="text" name="nome" required placeholder="Digite o seu nome">
-                        <br/>
-                        <label class="form-lable">GENERO</label>
-                        <select class="form-select" aria-label="Selecione seu genero" name="genero" required>
-                      <option value="Masculino">masculino</option>
-                      <option value="Feminino">feminino</option>
-                      <option value="Outro">outro</option>
-                      </select>
-                        <br/>
-                        <label class="form-lable">E-MAIL</label>
-                        <input class="form-control" type="email" name="email" required placeholder="Digite o seu e-mail">
-                        <br/>
-                        <label class="form-lable">SENHA</label>
-                        <input class="form-control" type="password" name="senha" required placeholder="Digite a sua senha">
-                        <br/>
-                        <input type="submit";
-                    <form>
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">FECHAR</button>
                 </div>
             </div>
         </div>
